@@ -1,11 +1,11 @@
 """
-开黑啦 v3 协议适配
+Fanbook v3 协议适配
 ============================
 
-协议详情请看: `kaiheila V3`_
+协议详情请看: `Fanbook 开发平台`_
 
-.. _kaiheila V3:
-    https://developer.kaiheila.cn/doc/intro
+.. _Fanbook 开发平台:
+    https://open.fanbook.mobi/document/manage/doc/
 """
 
 from .bot import Bot as Bot

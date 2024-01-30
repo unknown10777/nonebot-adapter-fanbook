@@ -159,7 +159,7 @@ async def send(
 
 class Bot(BaseBot, ApiClient):
     """
-    Kaiheila Bot 适配。
+    Fanbook Bot 适配。
     """
 
     send_handler: Callable[
@@ -185,7 +185,7 @@ class Bot(BaseBot, ApiClient):
         """
         :说明:
 
-          调用 kaiheila 协议 API
+          调用 Fanbook 协议 API
 
         :参数:
 
@@ -322,8 +322,8 @@ class Bot(BaseBot, ApiClient):
             quote: 回复某条消息的消息ID
         """
         # 接口文档：
-        # https://developer.kaiheila.cn/doc/http/direct-message#%E5%8F%91%E9%80%81%E7%A7%81%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%B6%88%E6%81%AF
-        # https://developer.kaiheila.cn/doc/http/message#%E5%8F%91%E9%80%81%E9%A2%91%E9%81%93%E8%81%8A%E5%A4%A9%E6%B6%88%E6%81%AF
+        # https://developer.Fanbook.cn/doc/http/direct-message#%E5%8F%91%E9%80%81%E7%A7%81%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%B6%88%E6%81%AF
+        # https://developer.Fanbook.cn/doc/http/message#%E5%8F%91%E9%80%81%E9%A2%91%E9%81%93%E8%81%8A%E5%A4%A9%E6%B6%88%E6%81%AF
         params = {}
 
         # type & content

@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "nonebot-adapter-kaiheila"
+name = "nonebot-adapter-fanbook"
 version = "0.3.0"
-description = "kaiheila adapter for nonebot2"
-authors = ["Tian-que <1605206150@qq.com>", "ssttkkl <huang.wen.long@hotmail.com>"]
+description = "Fanbook adapter for nonebot2"
+authors = ["Tian-que <1605206150@qq.com>", "ssttkkl <huang.wen.long@hotmail.com>", "33335 <33335.top>"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/Tian-que/nonebot-adapter-kaiheila"
-keywords = ["bot", "khl", "kaiheila", "khlbot"]
+repository = "https://github.com/Tian-que/nonebot-adapter-fanbook"
+keywords = ["bot", "fk", "fanbook", "fkbot"]
 
 packages = [
   { include = "nonebot" }

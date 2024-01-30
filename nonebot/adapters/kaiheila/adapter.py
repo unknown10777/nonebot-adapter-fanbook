@@ -26,7 +26,7 @@ from . import event
 from .bot import Bot
 from .api.model import User
 from .config import BotConfig
-from .config import Config as KaiheilaConfig
+from .config import Config as FanbookConfig
 from .message import Message, MessageSegment
 from .api.handle import get_api_method, get_api_restype
 from .utils import ResultStore, log, _handle_api_result
@@ -46,7 +46,7 @@ from .exception import (
     ApiNotAvailable,
     RateLimitException,
     UnauthorizedException,
-    KaiheilaAdapterException,
+    FanbookAdapterException,
 )
 
 RECONNECT_INTERVAL = 3.0
@@ -64,8 +64,8 @@ class Adapter(BaseAdapter):
     @override
     def __init__(self, driver: Driver, **kwargs: Any):
         super().__init__(driver, **kwargs)
-        self.kaiheila_config: KaiheilaConfig = KaiheilaConfig(**self.config.dict())
-        self.api_root = "https://www.kaiheila.cn/api/v3/"
+        self.Fanbook_config: FanbookConfig = FanbookConfig(**self.config.dict())
+        self.api_root = "https://a1.fanbook.cn/api/bot/"
         self.connections: Dict[str, WebSocket] = {}
         self.tasks: List[asyncio.Task] = []
         self.setup()
@@ -74,7 +74,7 @@ class Adapter(BaseAdapter):
     @classmethod
     @override
     def get_name(cls) -> str:
-        return "Kaiheila"
+        return "Fanbook"
 
     # OK
     def setup(self) -> None:
@@ -109,7 +109,7 @@ class Adapter(BaseAdapter):
                 raise RateLimitException(response)
             else:
                 raise ActionFailed(response)
-        except KaiheilaAdapterException:
+        except FanbookAdapterException:
             raise
         except Exception as e:
             raise NetworkError("API request failed") from e
@@ -192,13 +192,13 @@ class Adapter(BaseAdapter):
     async def _get_gateway(self, token: str) -> URL:
         result = await self._do_call_api(
             "gateway/index",
-            data={"compress": 1 if self.kaiheila_config.compress else 0},
+            data={"compress": 1 if self.Fanbook_config.compress else 0},
             token=token,
         )
         return result.url
 
     async def start_forward(self) -> None:
-        for bot in self.kaiheila_config.kaiheila_bots:
+        for bot in self.Fanbook_config.Fanbook_bots:
             self.tasks.append(asyncio.create_task(self._forward_ws(bot)))
 
     async def stop_forward(self) -> None:
@@ -224,7 +224,7 @@ class Adapter(BaseAdapter):
                     log(
                         "ERROR",
                         f"<r><bg #f8bbd0>Token {escape_tag(bot_config.token)} was invalid. "
-                        "Please get a new token from https://developer.kaiheila.cn/app/index </bg #f8bbd0></r>",
+                        "Please get a new token from https://open.fanbook.mobi/developers </bg #f8bbd0></r>",
                         e,
                     )
                     return
@@ -250,7 +250,7 @@ class Adapter(BaseAdapter):
                     try:
                         data_decompress_func = (
                             zlib.decompress
-                            if self.kaiheila_config.compress
+                            if self.Fanbook_config.compress
                             else lambda x: x
                         )
                         while True:

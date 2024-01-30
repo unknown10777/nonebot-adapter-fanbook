@@ -18,10 +18,10 @@ from .api import Role, User, Emoji, Guild, Channel
 class EventTypes(IntEnum):
     """
     事件主要格式
-    Kaiheila 协议事件，字段与 Kaiheila 一致。各事件字段参考 `Kaiheila 文档`
+    Fanbook 协议事件，字段与 Fanbook 一致。各事件字段参考 `Fanbook 文档`
 
-    .. Kaiheila 文档:
-        https://developer.kaiheila.cn/doc/event/event-introduction#事件主要格式
+    .. Fanbook 文档:
+        https://developer.Fanbook.cn/doc/event/event-introduction#事件主要格式
     """
 
     text = 1
@@ -37,10 +37,10 @@ class EventTypes(IntEnum):
 class SignalTypes(IntEnum):
     """
     信令类型
-    Kaiheila 协议信令，字段与 Kaiheila 一致。各事件字段参考 `Kaiheila 文档`
+    Fanbook 协议信令，字段与 Fanbook 一致。各事件字段参考 `Fanbook 文档`
 
-    .. Kaiheila 文档:
-        https://developer.kaiheila.cn/doc/websocket#信令格式
+    .. Fanbook 文档:
+        https://developer.Fanbook.cn/doc/websocket#信令格式
     """
 
     EVENT = 0
@@ -168,10 +168,10 @@ class EventMessage(BaseModel):
 class Event(OriginEvent):
     """
     事件主要格式，来自 d 字段
-    Kaiheila 协议事件，字段与 Kaiheila 一致。各事件字段参考 `Kaiheila 文档`
+    Fanbook 协议事件，字段与 Fanbook 一致。各事件字段参考 `Fanbook 文档`
 
-    .. Kaiheila 文档:
-        https://developer.kaiheila.cn/doc/event/event-introduction
+    .. Fanbook 文档:
+        https://developer.Fanbook.cn/doc/event/event-introduction
     """
 
     __event__ = ""

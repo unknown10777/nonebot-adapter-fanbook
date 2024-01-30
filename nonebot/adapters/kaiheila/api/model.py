@@ -7,7 +7,7 @@ class User(BaseModel):
     """
     开黑啦 User 字段
 
-    https://developer.kaiheila.cn/doc/objects
+    https://developer.Fanbook.cn/doc/objects
     """
 
     id_: Optional[str] = Field(None, alias="id")

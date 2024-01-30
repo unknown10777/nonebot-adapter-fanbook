@@ -4,13 +4,11 @@
 
 <div align="center">
 
-# NoneBot-Adapter-Kaiheila
+# nonebot-adapter-fanbook
 
-_✨ 开黑啦协议适配 ✨_
+_✨ Fanbook Bot 协议适配 ✨_
 
 </div>
-
-## 个人工作繁忙时间不多， 欢迎有想法的各位共同维护仓库
 
 ## Manual
 

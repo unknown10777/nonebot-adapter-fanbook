@@ -9,16 +9,16 @@ from nonebot.exception import NoLogException as BaseNoLogException
 from nonebot.exception import ApiNotAvailable as BaseApiNotAvailable
 
 
-class KaiheilaAdapterException(AdapterException):
+class FanbookAdapterException(AdapterException):
     def __init__(self, *args: object):
-        super().__init__("Kaiheila", *args)
+        super().__init__("Fanbook", *args)
 
 
-class NoLogException(BaseNoLogException, KaiheilaAdapterException):
+class NoLogException(BaseNoLogException, FanbookAdapterException):
     pass
 
 
-class ActionFailed(BaseActionFailed, KaiheilaAdapterException):
+class ActionFailed(BaseActionFailed, FanbookAdapterException):
     """
     :说明:
 
@@ -61,7 +61,7 @@ class RateLimitException(ActionFailed):
     pass
 
 
-class NetworkError(BaseNetworkError, KaiheilaAdapterException):
+class NetworkError(BaseNetworkError, FanbookAdapterException):
     """
     :说明:
 
@@ -83,11 +83,11 @@ class NetworkError(BaseNetworkError, KaiheilaAdapterException):
         return self.__repr__()
 
 
-class ApiNotAvailable(BaseApiNotAvailable, KaiheilaAdapterException):
+class ApiNotAvailable(BaseApiNotAvailable, FanbookAdapterException):
     pass
 
 
-class UnsupportedMessageType(KaiheilaAdapterException):
+class UnsupportedMessageType(FanbookAdapterException):
     """
     :说明:
 
@@ -102,7 +102,7 @@ class UnsupportedMessageType(KaiheilaAdapterException):
         return self.message
 
 
-class UnsupportedMessageOperation(KaiheilaAdapterException):
+class UnsupportedMessageOperation(FanbookAdapterException):
     """
     :说明:
 
@@ -117,7 +117,7 @@ class UnsupportedMessageOperation(KaiheilaAdapterException):
         return self.message
 
 
-class ReconnectError(KaiheilaAdapterException):
+class ReconnectError(FanbookAdapterException):
     """
     :说明:
 
@@ -127,7 +127,7 @@ class ReconnectError(KaiheilaAdapterException):
     pass
 
 
-class TokenError(KaiheilaAdapterException):
+class TokenError(FanbookAdapterException):
     """
     :说明:
 

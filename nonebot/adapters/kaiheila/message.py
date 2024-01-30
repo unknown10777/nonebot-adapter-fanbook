@@ -13,7 +13,7 @@ from nonebot.adapters import MessageSegment as BaseMessageSegment
 from .utils import BytesReadable, escape_kmarkdown, unescape_kmarkdown
 from .exception import (
     UnsupportedMessageType,
-    KaiheilaAdapterException,
+    FanbookAdapterException,
     UnsupportedMessageOperation,
 )
 
@@ -25,7 +25,7 @@ class MessageSegment(BaseMessageSegment["Message"], ABC):
     """
     开黑啦 协议 MessageSegment 适配。具体方法参考协议消息段类型或源码。
 
-    https://developer.kaiheila.cn/doc/event/message
+    https://developer.Fanbook.cn/doc/event/message
     """
 
     # 已知：
@@ -466,7 +466,7 @@ class LocalMedia(VirtualMessageSegment):
 
     async def _upload(self, bot: "Bot") -> str:
         if self.data["file"] is None and self.data["content"] is None:
-            raise KaiheilaAdapterException("file_path 与 content 均为 None")
+            raise FanbookAdapterException("file_path 与 content 均为 None")
 
         file_key = await bot.upload_file(
             self.data["content"] or self.data["file"], self.data["title"]

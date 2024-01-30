@@ -9,7 +9,7 @@ from nonebot.internal.driver import Response
 
 from .exception import ActionFailed
 
-log = logger_wrapper("Kaiheila")
+log = logger_wrapper("Fanbook")
 
 
 def _b2s(b: Optional[bool]) -> Optional[str]:

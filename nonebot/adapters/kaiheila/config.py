@@ -5,9 +5,9 @@ from pydantic import Field, BaseModel
 
 class BotConfig(BaseModel):
     """
-    Kaiheila Bot 配置类
+    Fanbook Bot 配置类
     :配置项:
-      - ``token``: Kaiheila 开发者中心获得
+      - ``token``: Fanbook 开发者中心获得
     """
 
     token: str
@@ -19,11 +19,11 @@ class BotConfig(BaseModel):
 
 class Config(BaseModel):
     """
-    Kaiheila 配置类
+    Fanbook 配置类
 
     :配置项:
 
-      - ``kaiheila_bots`` : Kaiheila 开发者中心获得
+      - ``Fanbook_bots`` : Fanbook 开发者中心获得
       - ``compress`` : 是否开启压缩, 默认为 False
 
     :示例:
@@ -33,7 +33,7 @@ class Config(BaseModel):
         bots = [{"token": "token1"}, {"token": "token2"}]
     """
 
-    kaiheila_bots: List["BotConfig"] = Field(default_factory=list)
+    Fanbook_bots: List["BotConfig"] = Field(default_factory=list)
     compress: Optional[bool] = Field(default=False)
 
     class Config:
